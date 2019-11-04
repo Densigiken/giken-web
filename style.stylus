@@ -50,6 +50,8 @@ html,body {
 }
 
 header {
+  vendor(position, sticky);
+  top: 0;
   background-color: var(--main-bg);
   height: 5vw;
   font-size: 2vw;
