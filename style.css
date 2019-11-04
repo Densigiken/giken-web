@@ -1,0 +1,68 @@
+:root {
+  --ui-bg: #3b3b3b;
+  --main-bg: #fff;
+  --main-text: #000;
+  --ui-text: #cdcdcd;
+  --ui-focus: #545454;
+  --ui-hover: #656565;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --ui-bg: #3b3b3b;
+    --ui-text: #cdcdcd;
+    --main-bg: #fff;
+    --main-text: #000;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ui-bg: #e6e6e6;
+    --ui-text: #1c1c1c;
+    --main-bg: #000;
+    --main-text: #fff;
+  }
+}
+* {
+  width: 100%;
+  margin: 0%;
+  padding: 0%;
+  text-decoration: none;
+}
+html,
+body {
+  background-color: var(--main-bg);
+  font-family: -apple-system, 'BlinkMacSystemFont', 'Hiragino Kaku Gothic ProN', 'メイリオ', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+header {
+  background-color: var(--main-bg);
+  height: 5vw;
+  font-size: 2vw;
+}
+header #icon {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 5%;
+  height: 100%;
+  border: solid 4px #000;
+}
+header nav {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  width: 95%;
+  height: 5vw;
+  justify-content: space-between;
+  background-color: transparent;
+}
+header nav a {
+  display: inline-block;
+  text-align: center;
+  line-height: 5vw;
+  vertical-align: middle;
+  background-color: var(--ui-bg);
+  color: var(--ui-text);
+}
+main {
+  color: var(--main-text);
+}
