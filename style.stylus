@@ -59,7 +59,7 @@ header {
     box-sizing: border-box;
     width: 5%;
     height: 100%;
-    border: solid 4px black;
+    border: solid 0.3vw black;
   }
 
   nav {
