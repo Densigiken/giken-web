@@ -33,7 +33,22 @@ body {
   background-color: var(--main-bg);
   font-family: -apple-system, 'BlinkMacSystemFont', 'Hiragino Kaku Gothic ProN', 'メイリオ', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 }
-header {
+#top {
+  box-sizing: border-box;
+  height: 100vh;
+}
+#top .hero {
+  color: var(--main-text);
+}
+#top .hero .sub-title {
+  font-size: 2vmax;
+}
+#top .hero h1 {
+  line-height: 1;
+  font-size: 6vmax;
+  font-weight: bold;
+}
+#top header {
   -webkit-position: sticky;
   -moz-position: sticky;
   position: sticky;
@@ -41,15 +56,16 @@ header {
   background-color: var(--main-bg);
   height: 5vw;
   font-size: 2vw;
+  font-weight: lighter;
 }
-header #icon {
+#top header .icon {
   display: inline-block;
   box-sizing: border-box;
   width: 5%;
   height: 100%;
   border: solid 0.3vw #000;
 }
-header nav {
+#top header nav {
   position: absolute;
   right: 0;
   top: 0;
@@ -59,13 +75,17 @@ header nav {
   justify-content: space-between;
   background-color: transparent;
 }
-header nav a {
+#top header nav a {
   display: inline-block;
   text-align: center;
   line-height: 5vw;
   vertical-align: middle;
   background-color: var(--ui-bg);
   color: var(--ui-text);
+  font-size: 2vmax;
+}
+#top header nav a .icon {
+  font-size: 8vmax;
 }
 main {
   color: var(--main-text);
