@@ -11,7 +11,7 @@
 @media screen and (max-width: 480px) {
   :root {
     --header-base-size: 10vw;
-    --header-font-size: 3vw;
+    --header-font-size: 4vw;
   }
 }
 @media (prefers-color-scheme: light) {
@@ -74,6 +74,7 @@ header {
   background-color: var(--main-bg);
   height: var(--header-base-size);
   font-size: var(--header-font-size);
+  font-weight: bolder;
 }
 header .icon {
   display: inline-block;
