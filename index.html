@@ -2,41 +2,43 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="initial-scale=1, viewport-fit=cover">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>東京電機大学電子技術研究部</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <section id="top">
-        <section class="hero">
+    <section class="hero">
+        <div class="layout">
             <div class="sub-title">
                 東京電機大学東京千住キャンパス学術研究部会
             </div>
             <h1>電子技術研究部</h1>
-        </section>
-        <header>
-            <picture class="icon">
-                <source media="(min-width:1000px)" srcset="./img/logo/2000.png">
-                <source media="(min-width:900px)" srcset="./img/logo/2000.png">
-                <source media="(min-width:800px)" srcset="./img/logo/1000.png">
-                <source media="(min-width:700px)" srcset="./img/logo/500.png">
-                <source media="(min-width:600px)" srcset="./img/logo/250.png">
-                <source media="(min-width:500px)" srcset="./img/logo/125.png">
-                <source media="(min-width:400px)" srcset="./img/logo/64.png">
-                <source media="(min-width:300px)" srcset="./img/logo/32.png">
-                <source media="(min-width:200px)" srcset="./img/logo/16.png">
-                <source media="(min-width:100px)" srcset="./img/logo/8.png">
-                <img src="./img/logo/64.png" alt="部のロゴ">
-            </picture>
-            <nav>
-                <a href="#" id="about">○概要</a>
-                <a href="#" id="news">△お知らせ</a>
-                <a href="#" id="blog">□ブログ</a>
-                <a href="#" id="works">×作品</a>
-            </nav>
-        </header>
+        </div>
     </section>
+    <header>
+        <picture class="icon">
+            <source media="(min-width:1000px)" srcset="./img/logo/2000.png">
+            <source media="(min-width:900px)" srcset="./img/logo/2000.png">
+            <source media="(min-width:800px)" srcset="./img/logo/1000.png">
+            <source media="(min-width:700px)" srcset="./img/logo/500.png">
+            <source media="(min-width:600px)" srcset="./img/logo/250.png">
+            <source media="(min-width:500px)" srcset="./img/logo/125.png">
+            <source media="(min-width:400px)" srcset="./img/logo/64.png">
+            <source media="(min-width:300px)" srcset="./img/logo/32.png">
+            <source media="(min-width:200px)" srcset="./img/logo/16.png">
+            <source media="(min-width:100px)" srcset="./img/logo/8.png">
+            <img src="./img/logo/64.png" alt="部のロゴ">
+        </picture>
+        <nav>
+            <a href="#" id="about"><div>概要</div></a>
+            <a href="#" id="news"><div>お知らせ</div></a>
+            <a href="#" id="blog"><div>ブログ</div></a>
+            <a href="#" id="works"><div>作品</div></a>
+            <a href="#" id="dev"></a>
+        </nav>
+    </header>
     <main>
         <section id="main-about">
             <h1>電子技術研究部について</h1>

@@ -17,6 +17,10 @@
     --main-bg: #fff;
     --main-text: #000;
   }
+
+  body>.hero {
+    background-image: url("img/hero-light.jpg");
+  }
 }
 
 // ダークモードの時
@@ -27,6 +31,10 @@
     --main-bg: #000;
     --main-text: #fff;
   }
+
+  body>.hero {
+    background-image: url("img/hero-dark.jpg");
+  }
 }
 
 // ベンダープレフィックス
@@ -36,71 +44,79 @@ vendor(prop, args) {
   {prop}: args;
 }
 
+vendorarg(prop, arg) {
+  {prop}: arg;
+  {prop}: -webkit-+arg;
+  {prop}: -moz-+arg;
+}
 // ########################################
 * {
   width: 100%;
-  margin: 0%;
-  padding: 0%;
+  margin: 0;
   text-decoration: none;
 }
 
 html,body {
+  padding: env(safe-area-inset-left) env(safe-area-inset-top) env(safe-area-inset-right); env(safe-area-inset-bottom);
   background-color: var(--main-bg);
   font-family: -apple-system, 'BlinkMacSystemFont', 'Hiragino Kaku Gothic ProN', 'メイリオ', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 }
 
-#top{
-  box-sizing: border-box;
-  height: 100vh;
-  .hero {
-    color: var(--main-text);
+body>.hero {
+  display: flex;
+  vendor(height, calc(100vh - 4vw));
+  color: var(--main-text);
+  background-attachment: fixed;
+  background-position: center center;
+  align-items: center;
 
+  .layout{
+    padding-left: 15vw;
     .sub-title {
-      font-size: 2vmax;
+      font-size: 2vw;
     }
+
     h1 {
       line-height: 1;
-      font-size: 6vmax;
+      font-size: 6vw;
       font-weight: bold;
     }
   }
+}
 
-  header {
-    vendor(position, sticky);
+header {
+  vendorarg(position, sticky);
+  top: 0;
+  background-color: var(--main-bg);
+  height: 4vw;
+  font-size: 1.5vw;
+  .icon {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 4vw;
+    height: 4vw;
+    border: solid 0.3vw black;
+  }
+
+  nav {
+    position: absolute;
+    right: 0;
     top: 0;
-    background-color: var(--main-bg);
-    height: 5vw;
-    font-size: 2vw;
-    font-weight: lighter;
-    .icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 96vw;
+    height: 4vw;
+    line-height: 4vw;
+    background-color: transparent;
+
+    a {
       display: inline-block;
-      box-sizing: border-box;
-      width: 5%;
-      height: 100%;
-      border: solid 0.3vw black;
-    }
-
-    nav {
-      position: absolute;
-      right: 0;
-      top: 0;
-      display: flex;
-      width: 95%;
-      height: 5vw;
-      justify-content: space-between;
-      background-color: transparent;
-
-      a {
-        display: inline-block;
-        text-align: center;
-        line-height: 5vw;
-        vertical-align: middle;
-        background-color: var(--ui-bg);
-        color: var(--ui-text);
-        font-size: 2vmax;
-        .icon{
-          font-size: 8vmax;
-        }
+      text-align: center;
+      background-color: var(--ui-bg);
+      color: var(--ui-text);
+      .icon{
+        font-size: 8vw;
       }
     }
   }
@@ -108,4 +124,5 @@ html,body {
 
 main {
   color: var(--main-text);
+  height: 300vh;
 }
