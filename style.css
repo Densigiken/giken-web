@@ -5,6 +5,14 @@
   --ui-text: #cdcdcd;
   --ui-focus: #545454;
   --ui-hover: #656565;
+  --header-base-size: 4vw;
+  --header-font-size: 1.5vw;
+}
+@media screen and (max-width: 480px) {
+  :root {
+    --header-base-size: 10vw;
+    --header-font-size: 3vw;
+  }
 }
 @media (prefers-color-scheme: light) {
   :root {
@@ -41,9 +49,7 @@ body {
 }
 body>.hero {
   display: flex;
-  -webkit-height: calc(100vh - 4vw);
-  -moz-height: calc(100vh - 4vw);
-  height: calc(100vh - 4vw);
+  height: calc(100vh - var(--header-base-size));
   color: var(--main-text);
   background-attachment: fixed;
   background-position: center top;
@@ -61,19 +67,19 @@ body>.hero .layout h1 {
   font-weight: bold;
 }
 header {
-  position: sticky;
   position: -webkit-sticky;
   position: -moz-sticky;
+  position: sticky;
   top: 0;
   background-color: var(--main-bg);
-  height: 4vw;
-  font-size: 1.5vw;
+  height: var(--header-base-size);
+  font-size: var(--header-font-size);
 }
 header .icon {
   display: inline-block;
   box-sizing: border-box;
-  width: 4vw;
-  height: 4vw;
+  width: var(--header-base-size);
+  height: var(--header-base-size);
   border: solid 0.3vw #000;
 }
 header nav {
@@ -83,9 +89,9 @@ header nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 96vw;
-  height: 4vw;
-  line-height: 4vw;
+  width: calc(100vw - var(--header-base-size));
+  height: var(--header-base-size);
+  line-height: var(--header-base-size);
   background-color: transparent;
 }
 header nav a {
