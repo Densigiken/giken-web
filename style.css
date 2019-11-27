@@ -46,7 +46,7 @@ body>.hero {
   height: calc(100vh - 4vw);
   color: var(--main-text);
   background-attachment: fixed;
-  background-position: center center;
+  background-position: top center;
   align-items: center;
 }
 body>.hero .layout {
