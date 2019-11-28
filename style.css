@@ -1,5 +1,6 @@
 :root {
   --ui-bg: #3b3b3b;
+  --ui-bg2: #b2b2b2;
   --main-bg: #fff;
   --main-text: #000;
   --ui-text: #cdcdcd;
@@ -17,6 +18,7 @@
 @media (prefers-color-scheme: light) {
   :root {
     --ui-bg: #3b3b3b;
+    --ui-bg2: #b2b2b2;
     --ui-text: #cdcdcd;
     --main-bg: #fff;
     --main-text: #000;
@@ -28,6 +30,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --ui-bg: #e6e6e6;
+    --ui-bg2: #4c4c4c;
     --ui-text: #1c1c1c;
     --main-bg: #000;
     --main-text: #fff;
@@ -45,7 +48,7 @@ html,
 body {
   padding: env(safe-area-inset-left) env(safe-area-inset-top) env(safe-area-inset-right);
   background-color: var(--main-bg);
-  font-family: -apple-system, 'BlinkMacSystemFont', 'Hiragino Kaku Gothic ProN', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-family: -apple-system, 'BlinkMacSystemFont', 'Hiragino Kaku Gothic ProN', 'メイリオ', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 }
 body>.hero {
   display: flex;
@@ -75,7 +78,6 @@ header {
   background-color: var(--main-bg);
   height: var(--header-base-size);
   font-size: var(--header-font-size);
-  font-weight: bolder;
 }
 header .icon {
   display: inline-block;
@@ -108,4 +110,13 @@ header nav a .icon {
 main {
   color: var(--main-text);
   height: 300vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: flex-start;
+}
+main .card {
+  flex-basis: 40%;
+  background-color: var(--ui-bg2);
+  border-radius: 5px;
 }

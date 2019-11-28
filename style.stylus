@@ -138,4 +138,13 @@ header {
 main {
   color: var(--main-text);
   height: 300vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: flex-start;
+  .card {
+    flex-basis: 40%;
+    background-color: var(--ui-bg2);
+    border-radius: 5px;
+  }
 }
