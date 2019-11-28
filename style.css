@@ -119,6 +119,7 @@ main {
 main .card {
   flex-basis: 47vw;
   margin-bottom: 2vw;
+  height: 24vw;
   background-color: var(--ui-bg2);
   border-radius: 5px;
 }
@@ -126,4 +127,7 @@ main .card {
   main .card {
     flex-basis: 96vw;
   }
+}
+main .card div img {
+  object-fit: cover;
 }

@@ -145,11 +145,17 @@ main {
   color: var(--main-text);
   .card {
     flex-basis: 47vw;
-    margin-bottom: 2vw ;
+    margin-bottom: 2vw;
+    height: 24vw;
     @media screen and (max-width: 480px){
       flex-basis: 96vw;
     }
     background-color: var(--ui-bg2);
     border-radius: 5px;
+    div{
+      img{
+        object-fit: cover;
+      }
+    }
   }
 }
