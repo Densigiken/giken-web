@@ -107,6 +107,12 @@ header nav a {
 header nav a .icon {
   font-size: 8vw;
 }
+.card div,
+.card button {
+  color: var(--main-text);
+  background-color: var(--ui-bg2);
+  border: none;
+}
 main {
   display: flex;
   flex-wrap: wrap;
@@ -114,20 +120,30 @@ main {
   align-content: space-between;
   box-sizing: border-box;
   padding: 2vw;
-  color: var(--main-text);
 }
 main .card {
   flex-basis: 47vw;
   margin-bottom: 2vw;
-  height: 24vw;
-  background-color: var(--ui-bg2);
-  border-radius: 5px;
 }
 @media screen and (max-width: 480px) {
   main .card {
     flex-basis: 96vw;
   }
 }
+main .card div {
+  box-sizing: border-box;
+  padding: 2%;
+  border-radius: 5px 5px 0px 0px;
+}
 main .card div img {
   object-fit: cover;
+}
+main .card button {
+  margin-top: 2px;
+  height: calc(var(--header-base-size) / 2);
+  border-radius: 0px 0px 5px 8px;
+  font-size: large;
+}
+main .card button:hover {
+  background-color: var(--ui-hover);
 }
