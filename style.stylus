@@ -69,7 +69,6 @@ vendorarg(prop, arg) {
 }
 
 html,body {
-  padding: env(safe-area-inset-left) env(safe-area-inset-top) env(safe-area-inset-right); env(safe-area-inset-bottom);
   background-color: var(--main-bg);
   font-family: -apple-system, 'BlinkMacSystemFont', 'Hiragino Kaku Gothic ProN', 'メイリオ', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 }
@@ -117,14 +116,14 @@ header {
     top: 0;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     width: calc(100vw - var(--header-base-size));
     height: var(--header-base-size);
     line-height: var(--header-base-size);
     background-color: transparent;
 
-    a {
+    button {
       display: inline-block;
+      border: none;
       text-align: center;
       background-color: var(--ui-bg);
       color: var(--ui-text);
