@@ -2,6 +2,7 @@
 // 変数の定義
 :root {
   --ui-bg: #3b3b3b;
+  --ui-bg2: #b2b2b2;
   --main-bg: #fff;
   --main-text: #000;
   --ui-text: #cdcdcd;
@@ -22,6 +23,7 @@
 @media (prefers-color-scheme: light) {
   :root {
     --ui-bg: #3b3b3b;
+    --ui-bg2: #b2b2b2;
     --ui-text: #cdcdcd;
     --main-bg: #fff;
     --main-text: #000;
@@ -36,6 +38,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --ui-bg: #e6e6e6;
+    --ui-bg2: #4c4c4c;
     --ui-text: #1c1c1c;
     --main-bg: #000;
     --main-text: #fff;
