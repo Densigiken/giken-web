@@ -108,15 +108,22 @@ header nav a .icon {
   font-size: 8vw;
 }
 main {
-  color: var(--main-text);
-  height: 300vh;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  align-content: flex-start;
+  justify-content: space-between;
+  align-content: space-between;
+  box-sizing: border-box;
+  padding: 2vw;
+  color: var(--main-text);
 }
 main .card {
-  flex-basis: 40%;
+  flex-basis: 47vw;
+  margin-bottom: 2vw;
   background-color: var(--ui-bg2);
   border-radius: 5px;
+}
+@media screen and (max-width: 480px) {
+  main .card {
+    flex-basis: 96vw;
+  }
 }
