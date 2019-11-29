@@ -16,8 +16,12 @@
 @media screen and (max-width: 480px) {
   :root{
     --header-base-size: 10vw;
-    --header-font-size: 4vw;
+    --header-font-size: 3vw;
   }
+}
+
+body>.hero {
+    background-image: url("img/hero-light.jpg");
 }
 
 // ライトモードの時
@@ -102,7 +106,6 @@ header {
   top: 0;
   background-color: var(--main-bg);
   height: var(--header-base-size);
-  font-size: var(--header-font-size);
   .icon {
     display: inline-block;
     box-sizing: border-box;
@@ -126,6 +129,7 @@ header {
       display: inline-block;
       border: none;
       text-align: center;
+      font-size: var(--header-font-size);
       background-color: var(--ui-bg);
       color: var(--ui-text);
       .icon{
@@ -135,11 +139,6 @@ header {
   }
 }
 
-.card div, .card button {
-  color: var(--main-text);
-  background-color: var(--ui-bg2);
-  border: none;
-}
 
 main {
   display: flex;
@@ -148,6 +147,11 @@ main {
   align-content: space-between;
   box-sizing: border-box;
   padding: 2vw;
+  .card div, .card button {
+    color: var(--main-text);
+    background-color: var(--ui-bg2);
+    border: none;
+  }
   .card {
     flex-basis: 47vw;
     margin-bottom: 2vw;
@@ -163,10 +167,11 @@ main {
       }
     }
     button {
+      display: block;
       margin-top: 2px;
       height: calc(var(--header-base-size) / 2);
       border-radius: 0px 0px 8px 8px;
-      font-size: large;
+      font-size: calc(var(--header-base-size) / 3);
     }
     button:hover{
       background-color: var(--ui-hover);

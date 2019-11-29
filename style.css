@@ -13,8 +13,11 @@
 @media screen and (max-width: 480px) {
   :root {
     --header-base-size: 10vw;
-    --header-font-size: 4vw;
+    --header-font-size: 3vw;
   }
+}
+body>.hero {
+  background-image: url("img/hero-light.jpg");
 }
 @media (prefers-color-scheme: light) {
   :root {
@@ -77,7 +80,6 @@ header {
   top: 0;
   background-color: var(--main-bg);
   height: var(--header-base-size);
-  font-size: var(--header-font-size);
 }
 header .icon {
   display: inline-block;
@@ -101,17 +103,12 @@ header nav button {
   display: inline-block;
   border: none;
   text-align: center;
+  font-size: var(--header-font-size);
   background-color: var(--ui-bg);
   color: var(--ui-text);
 }
 header nav button .icon {
   font-size: 8vw;
-}
-.card div,
-.card button {
-  color: var(--main-text);
-  background-color: var(--ui-bg2);
-  border: none;
 }
 main {
   display: flex;
@@ -120,6 +117,12 @@ main {
   align-content: space-between;
   box-sizing: border-box;
   padding: 2vw;
+}
+main .card div,
+main .card button {
+  color: var(--main-text);
+  background-color: var(--ui-bg2);
+  border: none;
 }
 main .card {
   flex-basis: 47vw;
@@ -139,10 +142,11 @@ main .card div img {
   object-fit: cover;
 }
 main .card button {
+  display: block;
   margin-top: 2px;
   height: calc(var(--header-base-size) / 2);
   border-radius: 0px 0px 8px 8px;
-  font-size: large;
+  font-size: calc(var(--header-base-size) / 3);
 }
 main .card button:hover {
   background-color: var(--ui-hover);
