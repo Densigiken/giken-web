@@ -10,6 +10,7 @@
   --ui-hover: #656565;
   --header-base-size: 4vw;
   --header-font-size: 1.5vw;
+  --window-height: 100vh;
 }
 
 @media screen and (max-width: 480px) {
@@ -75,7 +76,7 @@ html,body {
 
 body>.hero {
   display: flex;
-  height: calc(100vh - var(--header-base-size));
+  height: calc(var(--window-height) - var(--header-base-size));
   color: var(--main-text);
   background-attachment: fixed;
   background-position: center center;
