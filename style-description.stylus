@@ -1,0 +1,260 @@
+// ########################################
+// 変数の定義
+// CSS変数を使ってカラーパレットと各種サイズを定義します
+// CSS変数は--name: value;の形で定義します。var(--name)で呼び出せます。
+// :rootセレクタでCSS変数を定義するとその変数はフローバル変数になります。
+:root {
+  --ui-bg: #3b3b3b;
+  --ui-bg2: #b2b2b2;
+  --main-bg: #fff;
+  --main-text: #000;
+  --ui-text: #cdcdcd;
+  --ui-focus: #545454;
+  --ui-hover: #656565;
+  // ヘッダーの高さとアイコンの1辺長
+  --header-base-size: 4vw;
+  --header-font-size: 1.5vw;
+  --window-height: 100vh;
+}
+// メディアクエリを使ってスマートフォン向けのスタイルを定義します。
+// メディアクエリは@mediaに続けて各種引数を指定します。
+// screenはそのスタイルを画面で表示された場合のみに適用し、印刷物などでは適用しません。
+// max-widthはそのスタイルを表示幅が指定した値までの場合に適用します。
+// 引数はandで繋げて書くことができます。
+@media screen and (max-width: 480px) {
+  :root{
+    --header-base-size: 10vw;
+    --header-font-size: 3vw;
+  }
+}
+// >を用いたセレクタは直下の要素を表します。
+body>.hero {
+  //デフォルトの背景画像を指定します。
+  background-image: url("img/hero-light.jpg");
+}
+
+// ライトモードの時
+// prefers-color-schemeを使うとデバイスの設定がダークモードかどうかを判別できます。
+@media (prefers-color-scheme: light) {
+  :root {
+    --ui-bg: #3b3b3b;
+    --ui-bg2: #b2b2b2;
+    --ui-text: #cdcdcd;
+    --main-bg: #fff;
+    --main-text: #000;
+  }
+
+  body>.hero {
+    background-image: url("img/hero-light.jpg");
+  }
+}
+
+// ダークモードの時
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ui-bg: #e6e6e6;
+    --ui-bg2: #4c4c4c;
+    --ui-text: #1c1c1c;
+    --main-bg: #000;
+    --main-text: #fff;
+  }
+
+  body>.hero {
+    background-image: url("img/hero-dark.jpg");
+  }
+}
+
+// ベンダープレフィックス
+// Stylusの機能として関数を定義します。
+// ベンダープレフィックスを書きやすくする関数です。
+vendor(prop, args) {
+  -webkit-{prop}: args;
+  -moz-{prop}: args;
+  {prop}: args;
+}
+// 引数にプレフィックスがつくタイプのベンダープレフィックスを書きやすくする関数です。
+vendorarg(prop, arg) {
+  {prop}: -webkit-+arg;
+  {prop}: -moz-+arg;
+  {prop}: arg;
+}
+// ########################################
+// *は全称セレクタです。ドキュメント内のすべての要素を表します。
+// ブラウザのレンダリングを阻害するため使用は推奨されません。このページにおいても今後置き換えられます。
+* {
+  width: 100%;
+  margin: 0;
+  text-decoration: none;
+}
+// カンマで区切ったセレクタはそれぞれに同じスタイルを適用することを意味します。
+html,body {
+  background-color: var(--main-bg);
+  // フォントは複数指定でき、左から順に使用可能なものが使われます。BlinkMacSystemFontはMac上のChrome系のブラウザでヒラギノフォントを表示するためのものです。
+  font-family: -apple-system, 'BlinkMacSystemFont', 'Hiragino Kaku Gothic ProN', 'メイリオ', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+
+body>.hero {
+  // Flexboxを用いてレイアウトします。
+  display: flex;
+  // calc()関数を使うとCSS上で4則演算ができます。
+  // この計算はiPhoneなどのデバイスにおいてナビゲーションバーなどによるレイアウトの崩れを防いでいます。
+  // iOSではheight: 100%にはナビゲーションバーやアドレスバーは含まれませんが、height: 100vhには含まれます。
+  height: calc(var(--window-height) - var(--header-base-size));
+  color: var(--main-text);
+  // 背景画像を固定します。
+  background-attachment: fixed;
+  // 背景画像を中央に揃えます。
+  background-position: center center;
+  // 背景画像が画面を埋めるようにします。
+  background-size: cover;
+  // Flexアイテムを垂直方向に中央揃えします。
+  align-items: center;
+  // Stylusではスタイルを入れ子にできます。
+  .layout{
+    padding-left: 15vw;
+    .sub-title {
+      font-size: 2vw;
+    }
+
+    h1 {
+      line-height: 1;
+      font-size: 6vw;
+      font-weight: bold;
+    }
+  }
+}
+
+header {
+  vendorarg(position, sticky);
+  top: 0;
+  background-color: var(--main-bg);
+  height: var(--header-base-size);
+  .icon {
+    display: inline-block;
+    // box-sizing: border-boxを指定するとPadding,borderがheightとwidthに含まれるようになります。
+    box-sizing: border-box;
+    width: var(--header-base-size);
+    height: var(--header-base-size);
+    border: solid 0.3vw black;
+  }
+
+  nav {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    // Flexアイテムの水平方向の揃えを指定します。space-betweenでは要素を幅いっぱいに均等に並べます。
+    justify-content: space-between;
+    width: calc(100vw - var(--header-base-size));
+    height: var(--header-base-size);
+    line-height: var(--header-base-size);
+    background-color: transparent;
+
+    button {
+      display: inline-block;
+      border: none;
+      // テキストを水平方向に中央揃えします。
+      text-align: center;
+      font-size: var(--header-font-size);
+      background-color: var(--ui-bg);
+      color: var(--ui-text);
+      .icon{
+        font-size: 8vw;
+      }
+    }
+  }
+}
+
+main {
+  display: flex;
+  // Flexアイテムを折り返すようにします。
+  flex-wrap: wrap;
+  justify-content: space-between;
+  // Flexアイテムの複数行の垂直方向の揃えを指定します。
+  align-content: space-between;
+  box-sizing: border-box;
+  padding: 2vw;
+  .card div, .card button {
+    color: var(--main-text);
+    background-color: var(--ui-bg2);
+    border: none;
+  }
+  .card {
+    // Flexアイテムの幅を指定します。
+    flex-basis: 47vw;
+    margin-bottom: 2vw;
+    @media screen and (max-width: 480px){
+      flex-basis: 96vw;
+    }
+    div{
+      box-sizing: border-box;
+      padding: 2%;
+      border-radius: 5px 5px 0px 0px;
+      img{
+        object-fit: cover;
+      }
+    }
+    button {
+      display: block;
+      margin-top: 2px;
+      height: calc(var(--header-base-size) / 2);
+      // 角丸を指定します。引数は左上から反時計回りです。
+      border-radius: 0px 0px 8px 8px;
+      font-size: calc(var(--header-base-size) / 3);
+    }
+    button:hover{
+      background-color: var(--ui-hover);
+    }
+  }
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+  height: calc(4rem + 4vw);
+  @media screen and (max-width: 480px){
+    height: calc(6rem + 8vw);
+  }
+  background-color: var(--ui-bg2);
+  #link {
+    display: flex;
+    height: calc(2rem + 4vw);
+    padding: 2vw;
+    flex-basis: 44vw;
+    @media screen and (max-width: 480px){
+      flex-basis: 47vw;
+      height: calc(4rem + 6vw);
+    }
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    box-sizing: border-box;
+    a{
+      box-sizing: border-box;
+      flex-basis: calc(90vw / 4);
+      @media screen and (max-width: 480px){
+        flex-basis: 47vw;
+      }
+      display: block;
+      height: 2rem;
+      line-height: 2rem;
+      padding: 0 1vw;
+      color: #fff;
+      border: none;
+      background-color: #000;
+      i {
+        display: inline;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+  #copywrite {
+    height: 2rem;
+    line-height: 2rem;
+    font-size: 1rem;
+    @media screen and (max-width: 480px) {
+      font-size: calc(100vw / 30);
+    }
+    text-align: center;
+  }
+}
