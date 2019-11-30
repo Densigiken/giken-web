@@ -152,26 +152,40 @@ main .card button:hover {
   background-color: var(--ui-hover);
 }
 footer {
-  height: 25vh;
-  min-height: calc(6rem + 8vw);
+  position: relative;
+  bottom: 0;
+  height: calc(4rem + 4vw);
   background-color: var(--ui-bg2);
 }
+@media screen and (max-width: 480px) {
+  footer {
+    height: calc(6rem + 8vw);
+  }
+}
 footer #link {
-  flex-basis: 44vw;
   display: flex;
-  height: 80%;
+  height: calc(2rem + 4vw);
   padding: 2vw;
+  flex-basis: 44vw;
   flex-wrap: wrap;
   justify-content: space-between;
   align-content: space-between;
   box-sizing: border-box;
 }
+@media screen and (max-width: 480px) {
+  footer #link {
+    flex-basis: 47vw;
+    height: calc(4rem + 6vw);
+  }
+}
 footer #link a {
+  box-sizing: border-box;
   flex-basis: calc(90vw / 4);
   display: block;
   height: 2rem;
   line-height: 2rem;
-  color: var(--main-text);
+  padding: 0 1vw;
+  color: #fff;
   border: none;
   background-color: #000;
 }
@@ -183,4 +197,15 @@ footer #link a {
 footer #link a i {
   display: inline;
   margin-right: 0.5rem;
+}
+footer #copywrite {
+  height: 2rem;
+  line-height: 2rem;
+  font-size: 1rem;
+  text-align: center;
+}
+@media screen and (max-width: 480px) {
+  footer #copywrite {
+    font-size: calc(100vw / 30);
+  }
 }
