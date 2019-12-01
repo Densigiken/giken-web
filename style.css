@@ -46,13 +46,13 @@ body {
 }
 .hero {
   display: flex;
+  align-items: center;
   height: calc(var(--window-height) - var(--header-base-size));
   color: var(--main-text);
   background-image: url("img/hero-light.jpg");
   background-attachment: fixed;
   background-position: center center;
   background-size: cover;
-  align-items: center;
 }
 @media (prefers-color-scheme: light) {
   .hero {
@@ -80,8 +80,8 @@ header {
   position: -moz-sticky;
   position: sticky;
   top: 0;
-  background-color: var(--main-bg);
   height: var(--header-base-size);
+  background-color: var(--main-bg);
 }
 .header_logo {
   display: inline-block;
@@ -99,7 +99,6 @@ nav {
   width: calc(100vw - var(--header-base-size));
   height: var(--header-base-size);
   line-height: var(--header-base-size);
-  background-color: transparent;
 }
 .nav_item {
   display: inline-block;
@@ -119,9 +118,9 @@ main {
 }
 .card_layout,
 .card_button {
-  color: var(--main-text);
   background-color: var(--ui-bg2);
   border: none;
+  color: var(--main-text);
 }
 .card {
   flex-basis: 47vw;
@@ -141,7 +140,7 @@ main {
   display: block;
   margin-top: 2px;
   height: calc(var(--header-base-size) / 2);
-  border-radius: 0px 0px 8px 8px;
+  border-radius: 0px 0px 5px 5px;
   font-size: calc(var(--header-base-size) / 3);
 }
 .card_button:hover {
@@ -158,7 +157,7 @@ footer {
     height: calc(6rem + 8vw);
   }
 }
-footer .footer_link {
+.footer_link {
   display: flex;
   height: calc(2rem + 4vw);
   padding: 2vw;
@@ -169,12 +168,12 @@ footer .footer_link {
   box-sizing: border-box;
 }
 @media screen and (max-width: 480px) {
-  footer .footer_link {
+  .footer_link {
     flex-basis: 47vw;
     height: calc(4rem + 6vw);
   }
 }
-footer .footer_link a {
+.footer_link_item {
   box-sizing: border-box;
   flex-basis: calc(90vw / 4);
   display: block;
@@ -186,12 +185,12 @@ footer .footer_link a {
   background-color: #000;
 }
 @media screen and (max-width: 480px) {
-  footer .footer_link a {
+  .footer_link_item {
     flex-basis: 47vw;
   }
 }
-footer .footer_link a i {
-  display: inline;
+.icon {
+  display: inline !important;
   margin-right: 0.5rem;
 }
 .footer_copywrite {
