@@ -17,11 +17,11 @@
             <div class="sub-title">
                 東京電機大学東京千住キャンパス学術研究部会
             </div>
-            <h1>電子技術研究部</h1>
+            <h1 class="title">電子技術研究部</h1>
         </div>
     </section>
     <header>
-        <picture class="icon">
+        <picture class="header_logo">
             <source media="(min-width:1000px)" srcset="./img/logo/2000.png">
             <source media="(min-width:900px)" srcset="./img/logo/2000.png">
             <source media="(min-width:800px)" srcset="./img/logo/1000.png">
@@ -32,53 +32,53 @@
             <source media="(min-width:300px)" srcset="./img/logo/32.png">
             <source media="(min-width:200px)" srcset="./img/logo/16.png">
             <source media="(min-width:100px)" srcset="./img/logo/8.png">
-            <img src="./img/logo/64.png" alt="部のロゴ">
+            <img class="picture_img" src="./img/logo/64.png" width="64" height="64" alt="部のロゴ">
         </picture>
         <nav>
-            <button id="about">概要</button>
-            <button id="news">お知らせ</button>
-            <button id="blog">ブログ</button>
-            <button id="works">ギャラリー</button>
+            <button class="nav_item">概要</button>
+            <button class="nav_item">お知らせ</button>
+            <button class="nav_item">ブログ</button>
+            <button class="nav_item">ギャラリー</button>
         </nav>
     </header>
     <main>
-        <section id="main-about" class="card">
-            <div>
-                <h1>電子技術研究部について</h1>
-                <p>電子技術研究部は、マイコンなどの電子部品を使って様々な作品を制作する部活動です。</p>
+        <section class="card">
+            <div class="card_layout">
+                <h1 class="card_title">電子技術研究部について</h1>
+                <article class="card_article">電子技術研究部は、マイコンなどの電子部品を使って様々な作品を制作する部活動です。</article>
             </div>
-            <button>more</button>
+            <button class="card_button">more</button>
         </section>
-        <section id="main-news" class="card">
-            <div>
-                <h1>お知らせ</h1>
-                <p>2月29日から行われる技術書典 8に出展します。</p>
+        <section class="card">
+            <div class="card_layout">
+                <h1 class="card_title">お知らせ</h1>
+                <article class="card_article">2月29日から行われる技術書典 8に出展します。</article>
             </div>
-            <button>more</button>
+            <button class="card_button">more</button>
         </section>
-        <section id="main-blog" class="card">
-            <div>
-                <h1>ブログ</h1>
-                <p>新着：役員が新しくなりました</p>
+        <section class="card">
+            <div class="card_layout">
+                <h1 class="card_title">ブログ</h1>
+                <article class="card_article">新着：役員が新しくなりました</article>
             </div>
-            <button>more</button>
+            <button class="card_button">more</button>
         </section>
-        <section id="main-works" class="card">
-            <div>
-                <h1>ギャラリー</h1>
-                <p>部長のスクワット</p>
+        <section class="card">
+            <div class="card_layout">
+                <h1 class="card_title">ギャラリー</h1>
+                <article class="card_article">部長のスクワット</article>
             </div>
-            <button>more</button>
+            <button class="card_button">more</button>
         </section>
     </main>
     <footer>
-        <section id="link">
-            <a id="link-twitter" href="https://twitter.com/giken_PR"><i class="fab fa-twitter"></i>Twitter</a>
-            <a id="link-slack" href="https://giken.slack.com/"><i class="fab fa-slack"></i>Slack</a>
-            <a id="link-github" href="https://github.com/densigiken"><i class="fab fa-github"></i>Github</a>
-            <a id="link-tdu" href="https://www.dendai.ac.jp"><i class="fas fa-building"></i>東京電機大学</a>
+        <section class="footer_link">
+            <a class="footer_link_item" href="https://twitter.com/giken_PR"><i class="icon fab fa-twitter"></i>Twitter</a>
+            <a class="footer_link_item" href="https://giken.slack.com/"><i class="icon fab fa-slack"></i>Slack</a>
+            <a class="footer_link_item" href="https://github.com/densigiken"><i class="icon fab fa-github"></i>Github</a>
+            <a class="footer_link_item" href="https://www.dendai.ac.jp"><i class="icon fas fa-building"></i>東京電機大学</a>
         </section>
-        <section id="copywrite">&copy; 東京電機大学東京千住キャンパス学術研究部会電子技術研究部</section>
+        <section class="footer_copywrite">&copy; 東京電機大学東京千住キャンパス学術研究部会電子技術研究部</section>
     </footer>
     <script src="layout.js"></script>
 </body>

@@ -1,230 +1,191 @@
 // ########################################
 // 変数の定義
-:root {
-  --ui-bg: #3b3b3b;
-  --ui-bg2: #b2b2b2;
-  --main-bg: #fff;
-  --main-text: #000;
-  --ui-text: #cdcdcd;
-  --ui-focus: #545454;
-  --ui-hover: #656565;
-  --header-base-size: 4vw;
-  --header-font-size: 1.5vw;
-  --window-height: 100vh;
-}
+:root
+  --ui-bg #3b3b3b
+  --ui-bg2 #b2b2b2
+  --main-bg #fff
+  --main-text #000
+  --ui-text #cdcdcd
+  --ui-focus #545454
+  --ui-hover #656565
+  --header-base-size 4vw
+  --header-font-size 1.5vw
+  --window-height 100vh
 
-@media screen and (max-width: 480px) {
-  :root{
-    --header-base-size: 10vw;
-    --header-font-size: 3vw;
-  }
-}
+@media screen and (max-width 480px)
+  :root
+    --header-base-size 10vw
+    --header-font-size 3vw
 
-body>.hero {
-    background-image: url("img/hero-light.jpg");
-}
+@media (prefers-color-scheme light)
+  :root
+    --ui-bg #3b3b3b
+    --ui-bg2 #b2b2b2
+    --ui-text #cdcdcd
+    --main-bg #fff
+    --main-text #000
 
-// ライトモードの時
-@media (prefers-color-scheme: light) {
-  :root {
-    --ui-bg: #3b3b3b;
-    --ui-bg2: #b2b2b2;
-    --ui-text: #cdcdcd;
-    --main-bg: #fff;
-    --main-text: #000;
-  }
+@media (prefers-color-scheme dark)
+  :root
+    --ui-bg #e6e6e6
+    --ui-bg2 #4c4c4c
+    --ui-text #1c1c1c
+    --main-bg #000
+    --main-text #fff
 
-  body>.hero {
-    background-image: url("img/hero-light.jpg");
-  }
-}
+vendor(prop, args)
+  -webkit-{prop} args
+  -moz-{prop} args
+  {prop} args
 
-// ダークモードの時
-@media (prefers-color-scheme: dark) {
-  :root {
-    --ui-bg: #e6e6e6;
-    --ui-bg2: #4c4c4c;
-    --ui-text: #1c1c1c;
-    --main-bg: #000;
-    --main-text: #fff;
-  }
-
-  body>.hero {
-    background-image: url("img/hero-dark.jpg");
-  }
-}
-
-// ベンダープレフィックス
-vendor(prop, args) {
-  -webkit-{prop}: args;
-  -moz-{prop}: args;
-  {prop}: args;
-}
-
-vendorarg(prop, arg) {
-  {prop}: -webkit-+arg;
-  {prop}: -moz-+arg;
-  {prop}: arg;
-}
+vendorarg(prop, arg)
+ {prop} -webkit-+arg
+ {prop} -moz-+arg
+ {prop} arg
 // ########################################
-* {
-  width: 100%;
-  margin: 0;
-  text-decoration: none;
-}
+html,body
+  margin 0
+  background-color var(--main-bg)
+  font-family -apple-system, 'BlinkMacSystemFont', 'Hiragino Kaku Gothic ProN', 'メイリオ', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif
+.hero
+  display flex
+  align-items center
+  height calc(var(--window-height) - var(--header-base-size))
+  color var(--main-text)
+  background-image url("img/hero-light.jpg")
+  @media (prefers-color-scheme light)
+    background-image url("img/hero-light.jpg")
+  @media (prefers-color-scheme dark)
+    background-image url("img/hero-dark.jpg")
+  background-attachment fixed
+  background-position center center
+  background-size cover
+  .layout
+    padding-left 15vw
 
-html,body {
-  background-color: var(--main-bg);
-  font-family: -apple-system, 'BlinkMacSystemFont', 'Hiragino Kaku Gothic ProN', 'メイリオ', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-}
+.title
+  margin 0
+  line-height 1
+  font-size 6vw
+  font-weight bold
 
-body>.hero {
-  display: flex;
-  height: calc(var(--window-height) - var(--header-base-size));
-  color: var(--main-text);
-  background-attachment: fixed;
-  background-position: center center;
-  background-size: cover;
-  align-items: center;
+.sub-title
+  margin 0
+  font-size 2vw
 
-  .layout{
-    padding-left: 15vw;
-    .sub-title {
-      font-size: 2vw;
-    }
+header
+  vendorarg(position, sticky)
+  top 0
+  height var(--header-base-size)
+  background-color var(--main-bg)
 
-    h1 {
-      line-height: 1;
-      font-size: 6vw;
-      font-weight: bold;
-    }
-  }
-}
+.header_logo
+  display block
+  box-sizing border-box
+  width var(--header-base-size)
+  height var(--header-base-size)
+  border solid 0.3vw black
+.picture_img
+  width 100%
+  height 100%
 
-header {
-  vendorarg(position, sticky);
-  top: 0;
-  background-color: var(--main-bg);
-  height: var(--header-base-size);
-  .icon {
-    display: inline-block;
-    box-sizing: border-box;
-    width: var(--header-base-size);
-    height: var(--header-base-size);
-    border: solid 0.3vw black;
-  }
+nav
+  position absolute
+  right 0
+  top 0
+  display flex
+  justify-content space-between
+  width calc(100vw - var(--header-base-size))
+  height var(--header-base-size)
+  line-height var(--header-base-size)
 
-  nav {
-    position: absolute;
-    right: 0;
-    top: 0;
-    display: flex;
-    justify-content: space-between;
-    width: calc(100vw - var(--header-base-size));
-    height: var(--header-base-size);
-    line-height: var(--header-base-size);
-    background-color: transparent;
+.nav_item
+  display inline-block
+  width 100%
+  border none
+  text-align center
+  font-size var(--header-font-size)
+  background-color var(--ui-bg)
+  color var(--ui-text)
 
-    button {
-      display: inline-block;
-      border: none;
-      text-align: center;
-      font-size: var(--header-font-size);
-      background-color: var(--ui-bg);
-      color: var(--ui-text);
-      .icon{
-        font-size: 8vw;
-      }
-    }
-  }
-}
+main
+  display flex
+  flex-wrap wrap
+  justify-content space-between
+  align-content space-between
+  box-sizing border-box
+  padding 2vw
 
-main {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-content: space-between;
-  box-sizing: border-box;
-  padding: 2vw;
-  .card div, .card button {
-    color: var(--main-text);
-    background-color: var(--ui-bg2);
-    border: none;
-  }
-  .card {
-    flex-basis: 47vw;
-    margin-bottom: 2vw;
-    @media screen and (max-width: 480px){
-      flex-basis: 96vw;
-    }
-    div{
-      box-sizing: border-box;
-      padding: 2%;
-      border-radius: 5px 5px 0px 0px;
-      img{
-        object-fit: cover;
-      }
-    }
-    button {
-      display: block;
-      margin-top: 2px;
-      height: calc(var(--header-base-size) / 2);
-      border-radius: 0px 0px 8px 8px;
-      font-size: calc(var(--header-base-size) / 3);
-    }
-    button:hover{
-      background-color: var(--ui-hover);
-    }
-  }
-}
+.card_layout, .card_button
+  background-color var(--ui-bg2)
+  border none
+  color var(--main-text)
 
-footer {
-  position: relative;
-  bottom: 0;
-  height: calc(4rem + 4vw);
-  @media screen and (max-width: 480px){
-    height: calc(6rem + 8vw);
-  }
-  background-color: var(--ui-bg2);
-  #link {
-    display: flex;
-    height: calc(2rem + 4vw);
-    padding: 2vw;
-    flex-basis: 44vw;
-    @media screen and (max-width: 480px){
-      flex-basis: 47vw;
-      height: calc(4rem + 6vw);
-    }
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: space-between;
-    box-sizing: border-box;
-    a{
-      box-sizing: border-box;
-      flex-basis: calc(90vw / 4);
-      @media screen and (max-width: 480px){
-        flex-basis: 47vw;
-      }
-      display: block;
-      height: 2rem;
-      line-height: 2rem;
-      padding: 0 1vw;
-      color: #fff;
-      border: none;
-      background-color: #000;
-      i {
-        display: inline;
-        margin-right: 0.5rem;
-      }
-    }
-  }
-  #copywrite {
-    height: 2rem;
-    line-height: 2rem;
-    font-size: 1rem;
-    @media screen and (max-width: 480px) {
-      font-size: calc(100vw / 30);
-    }
-    text-align: center;
-  }
-}
+.card
+  flex-basis 47vw
+  @media screen and (max-width 480px)
+    flex-basis 96vw
+  margin-bottom 2vw
+
+.card_layout
+  box-sizing border-box
+  padding 2%
+  border-radius 5px 5px 0px 0px
+
+.card_button
+  display block
+  width 100%
+  margin-top 2px
+  height calc(var(--header-base-size) / 2)
+  border-radius 0px 0px 5px 5px
+  font-size calc(var(--header-base-size) / 3)
+
+.card_button:hover
+  background-color var(--ui-hover)
+
+footer
+  position relative
+  bottom 0
+  height calc(4rem + 4vw)
+  @media screen and (max-width 480px)
+    height calc(6rem + 8vw)
+  background-color var(--ui-bg2)
+.footer_link
+  display flex
+  height calc(2rem + 4vw)
+  padding 2vw
+  flex-basis 44vw
+  @media screen and (max-width 480px)
+    flex-basis 47vw
+    height calc(4rem + 6vw)
+  flex-wrap wrap
+  justify-content space-between
+  align-content space-between
+  box-sizing border-box
+          
+.footer_link_item
+  box-sizing border-box
+  flex-basis calc(90vw / 4)
+  @media screen and (max-width 480px)
+    flex-basis 47vw
+  display block
+  height 2rem
+  line-height 2rem
+  padding 0 1vw
+  color #fff
+  border none
+  background-color #000
+
+a
+  text-decoration: none
+
+.icon
+  display inline !important
+  margin-right 0.5rem
+.footer_copywrite
+  height 2rem
+  line-height 2rem
+  font-size 1rem
+  @media screen and (max-width 480px)
+    font-size calc(100vw / 30)
+  text-align center
