@@ -43,15 +43,10 @@ vendorarg(prop, arg)
  {prop} -moz-+arg
  {prop} arg
 // ########################################
-*
-  width 100%
-  margin 0
-  text-decoration none
-
 html,body
+  margin 0
   background-color var(--main-bg)
   font-family -apple-system, 'BlinkMacSystemFont', 'Hiragino Kaku Gothic ProN', 'メイリオ', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif
-
 .hero
   display flex
   align-items center
@@ -69,11 +64,13 @@ html,body
     padding-left 15vw
 
 .title
+  margin 0
   line-height 1
   font-size 6vw
   font-weight bold
 
 .sub-title
+  margin 0
   font-size 2vw
 
 header
@@ -83,11 +80,14 @@ header
   background-color var(--main-bg)
 
 .header_logo
-  display inline-block
+  display block
   box-sizing border-box
   width var(--header-base-size)
   height var(--header-base-size)
   border solid 0.3vw black
+.picture_img
+  width 100%
+  height 100%
 
 nav
   position absolute
@@ -101,6 +101,7 @@ nav
 
 .nav_item
   display inline-block
+  width 100%
   border none
   text-align center
   font-size var(--header-font-size)
@@ -133,6 +134,7 @@ main
 
 .card_button
   display block
+  width 100%
   margin-top 2px
   height calc(var(--header-base-size) / 2)
   border-radius 0px 0px 5px 5px
@@ -173,6 +175,9 @@ footer
   color #fff
   border none
   background-color #000
+
+a
+  text-decoration: none
 
 .icon
   display inline !important
