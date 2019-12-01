@@ -105,6 +105,7 @@ nav {
 .nav_item {
   display: inline-block;
   width: 100%;
+  padding: 0;
   border: none;
   text-align: center;
   font-size: var(--header-font-size);
@@ -139,13 +140,17 @@ main {
   padding: 2%;
   border-radius: 5px 5px 0px 0px;
 }
+.card_title {
+  margin: 0;
+}
 .card_button {
   display: block;
   width: 100%;
   margin-top: 2px;
   height: calc(var(--header-base-size) / 2);
+  line-height: calc(var(--header-base-size) / 2);
   border-radius: 0px 0px 5px 5px;
-  font-size: calc(var(--header-base-size) / 3);
+  font-size: calc(var(--header-base-size) / 2);
 }
 .card_button:hover {
   background-color: var(--ui-hover);
@@ -197,7 +202,7 @@ a {
   text-decoration: none;
 }
 .icon {
-  display: inline !important;
+  display: inline;
   margin-right: 0.5rem;
 }
 .footer_copywrite {
