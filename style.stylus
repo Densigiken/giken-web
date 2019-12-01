@@ -131,7 +131,7 @@ main
 .card_layout
   box-sizing border-box
   padding 2%
-  border-radius 5px 5px 0px 0px
+  border-radius 25px 5px 0px 0px
 
 .card_title
   margin 0
