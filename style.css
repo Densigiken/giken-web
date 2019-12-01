@@ -16,9 +16,6 @@
     --header-font-size: 3vw;
   }
 }
-body>.hero {
-  background-image: url("img/hero-light.jpg");
-}
 @media (prefers-color-scheme: light) {
   :root {
     --ui-bg: #3b3b3b;
@@ -26,9 +23,6 @@ body>.hero {
     --ui-text: #cdcdcd;
     --main-bg: #fff;
     --main-text: #000;
-  }
-  body>.hero {
-    background-image: url("img/hero-light.jpg");
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -38,9 +32,6 @@ body>.hero {
     --ui-text: #1c1c1c;
     --main-bg: #000;
     --main-text: #fff;
-  }
-  body>.hero {
-    background-image: url("img/hero-dark.jpg");
   }
 }
 * {
@@ -53,25 +44,36 @@ body {
   background-color: var(--main-bg);
   font-family: -apple-system, 'BlinkMacSystemFont', 'Hiragino Kaku Gothic ProN', 'メイリオ', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 }
-body>.hero {
+.hero {
   display: flex;
   height: calc(var(--window-height) - var(--header-base-size));
   color: var(--main-text);
+  background-image: url("img/hero-light.jpg");
   background-attachment: fixed;
   background-position: center center;
   background-size: cover;
   align-items: center;
 }
-body>.hero .layout {
+@media (prefers-color-scheme: light) {
+  .hero {
+    background-image: url("img/hero-light.jpg");
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .hero {
+    background-image: url("img/hero-dark.jpg");
+  }
+}
+.hero .layout {
   padding-left: 15vw;
 }
-body>.hero .layout .sub-title {
-  font-size: 2vw;
-}
-body>.hero .layout h1 {
+.title {
   line-height: 1;
   font-size: 6vw;
   font-weight: bold;
+}
+.sub-title {
+  font-size: 2vw;
 }
 header {
   position: -webkit-sticky;
@@ -81,14 +83,14 @@ header {
   background-color: var(--main-bg);
   height: var(--header-base-size);
 }
-header .icon {
+.header_logo {
   display: inline-block;
   box-sizing: border-box;
   width: var(--header-base-size);
   height: var(--header-base-size);
   border: solid 0.3vw #000;
 }
-header nav {
+nav {
   position: absolute;
   right: 0;
   top: 0;
@@ -99,16 +101,13 @@ header nav {
   line-height: var(--header-base-size);
   background-color: transparent;
 }
-header nav button {
+.nav_item {
   display: inline-block;
   border: none;
   text-align: center;
   font-size: var(--header-font-size);
   background-color: var(--ui-bg);
   color: var(--ui-text);
-}
-header nav button .icon {
-  font-size: 8vw;
 }
 main {
   display: flex;
@@ -118,37 +117,34 @@ main {
   box-sizing: border-box;
   padding: 2vw;
 }
-main .card div,
-main .card button {
+.card_layout,
+.card_button {
   color: var(--main-text);
   background-color: var(--ui-bg2);
   border: none;
 }
-main .card {
+.card {
   flex-basis: 47vw;
   margin-bottom: 2vw;
 }
 @media screen and (max-width: 480px) {
-  main .card {
+  .card {
     flex-basis: 96vw;
   }
 }
-main .card div {
+.card_layout {
   box-sizing: border-box;
   padding: 2%;
   border-radius: 5px 5px 0px 0px;
 }
-main .card div img {
-  object-fit: cover;
-}
-main .card button {
+.card_button {
   display: block;
   margin-top: 2px;
   height: calc(var(--header-base-size) / 2);
   border-radius: 0px 0px 8px 8px;
   font-size: calc(var(--header-base-size) / 3);
 }
-main .card button:hover {
+.card_button:hover {
   background-color: var(--ui-hover);
 }
 footer {
@@ -162,7 +158,7 @@ footer {
     height: calc(6rem + 8vw);
   }
 }
-footer #link {
+footer .footer_link {
   display: flex;
   height: calc(2rem + 4vw);
   padding: 2vw;
@@ -173,12 +169,12 @@ footer #link {
   box-sizing: border-box;
 }
 @media screen and (max-width: 480px) {
-  footer #link {
+  footer .footer_link {
     flex-basis: 47vw;
     height: calc(4rem + 6vw);
   }
 }
-footer #link a {
+footer .footer_link a {
   box-sizing: border-box;
   flex-basis: calc(90vw / 4);
   display: block;
@@ -190,22 +186,22 @@ footer #link a {
   background-color: #000;
 }
 @media screen and (max-width: 480px) {
-  footer #link a {
+  footer .footer_link a {
     flex-basis: 47vw;
   }
 }
-footer #link a i {
+footer .footer_link a i {
   display: inline;
   margin-right: 0.5rem;
 }
-footer #copywrite {
+.footer_copywrite {
   height: 2rem;
   line-height: 2rem;
   font-size: 1rem;
   text-align: center;
 }
 @media screen and (max-width: 480px) {
-  footer #copywrite {
+  .footer_copywrite {
     font-size: calc(100vw / 30);
   }
 }
