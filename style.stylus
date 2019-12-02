@@ -8,6 +8,7 @@
   --ui-text #cdcdcd
   --ui-focus #545454
   --ui-hover #656565
+  --key-color #3f95da
   --header-base-size 4vw
   --header-font-size 1.5vw
   --window-height 100vh
@@ -78,6 +79,7 @@ header
   top 0
   height var(--header-base-size)
   background-color var(--main-bg)
+  z-index 1
 
 .header_logo
   display block
@@ -126,22 +128,30 @@ main
   flex-basis 47vw
   @media screen and (max-width 480px)
     flex-basis 96vw
+  position relative
   margin-bottom 2vw
+  border-radius 25px 5px 5px 5px
+  background-color var(--ui-bg2)
 
 .card_layout
   box-sizing border-box
   padding 2%
+  border-style solid
+  border-width 2px 1px 0px 0px
+  border-color var(--key-color)
   border-radius 25px 5px 0px 0px
 
 .card_title
   margin 0
 
 .card_button
+  position absolute
+  bottom 0
   display block
   width 100%
-  margin-top 2px
   height calc(var(--header-base-size) / 2)
   line-height calc(var(--header-base-size) / 2)
+  border-top solid 2px var(--main-bg)
   border-radius 0px 0px 5px 5px
   font-size calc(var(--header-base-size) / 2)
 
@@ -155,6 +165,7 @@ footer
   @media screen and (max-width 480px)
     height calc(6rem + 8vw)
   background-color var(--ui-bg2)
+
 .footer_link
   display flex
   height calc(2rem + 4vw)
@@ -180,6 +191,7 @@ footer
   color #fff
   border none
   background-color #000
+  font-size var(--header-font-size)
 
 a
   text-decoration: none
