@@ -80,6 +80,7 @@ header {
   top: 0;
   height: var(--header-base-size);
   background-color: var(--main-bg);
+  z-index: 1;
 }
 .header_logo {
   display: block;
