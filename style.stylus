@@ -8,6 +8,7 @@
   --ui-text #cdcdcd
   --ui-focus #545454
   --ui-hover #656565
+  --key-color #3f95da
   --header-base-size 4vw
   --header-font-size 1.5vw
   --window-height 100vh
@@ -135,6 +136,9 @@ main
 .card_layout
   box-sizing border-box
   padding 2%
+  border-style solid
+  border-width 2px 1px 0px 0px
+  border-color var(--key-color)
   border-radius 25px 5px 0px 0px
 
 .card_title
