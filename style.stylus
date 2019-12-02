@@ -126,7 +126,10 @@ main
   flex-basis 47vw
   @media screen and (max-width 480px)
     flex-basis 96vw
+  position relative
   margin-bottom 2vw
+  border-radius 25px 5px 5px 5px
+  background-color var(--ui-bg2)
 
 .card_layout
   box-sizing border-box
@@ -137,11 +140,13 @@ main
   margin 0
 
 .card_button
+  position absolute
+  bottom 0
   display block
   width 100%
-  margin-top 2px
   height calc(var(--header-base-size) / 2)
   line-height calc(var(--header-base-size) / 2)
+  border-top solid 2px var(--main-bg)
   border-radius 0px 0px 5px 5px
   font-size calc(var(--header-base-size) / 2)
 
@@ -155,6 +160,7 @@ footer
   @media screen and (max-width 480px)
     height calc(6rem + 8vw)
   background-color var(--ui-bg2)
+
 .footer_link
   display flex
   height calc(2rem + 4vw)
@@ -180,6 +186,7 @@ footer
   color #fff
   border none
   background-color #000
+  font-size var(--header-font-size)
 
 a
   text-decoration: none
