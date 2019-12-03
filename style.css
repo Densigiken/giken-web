@@ -39,7 +39,7 @@ html,
 body {
   margin: 0;
   background-color: var(--main-bg);
-  font-family: -apple-system, 'BlinkMacSystemFont', 'Hiragino Kaku Gothic ProN', 'メイリオ', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-family: -apple-system, 'BlinkMacSystemFont', 'Hiragino Kaku Gothic ProN', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 }
 .hero {
   display: flex;
@@ -107,6 +107,7 @@ nav {
 .nav_item {
   display: inline-block;
   width: 100%;
+  margin: 0;
   padding: 0;
   border: none;
   text-align: center;
