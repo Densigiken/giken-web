@@ -1,6 +1,6 @@
 #Custom
 img/archive/
-.accessToken
+.accessToken*
 contents/
 
 # Logs
