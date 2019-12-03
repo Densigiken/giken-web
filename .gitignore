@@ -1,6 +1,7 @@
 #Custom
 img/archive/
 .accessToken
+contents/
 
 # Logs
 logs
