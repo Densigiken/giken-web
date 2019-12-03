@@ -2,6 +2,7 @@
 img/archive/
 .accessToken*
 contents/
+app.yaml
 
 # Logs
 logs
