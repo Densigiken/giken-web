@@ -120,11 +120,10 @@ main
   box-sizing border-box
   padding 2vw
 
-@supports (padding: calc(max(0px))) {
+@supports (padding: calc(max(0px)))
   main {
     padding 2vw calc(max(env(safe-area-inset-right), 2vw)) 2vw calc(max(env(safe-area-inset-left), 2vw))
   }
-}
 
 .card_layout, .card_button
   background-color var(--ui-bg2)
@@ -191,11 +190,10 @@ footer
   align-content space-between
   box-sizing border-box
 
-@supports (padding: calc(max(0px))) {
+@supports (padding: calc(max(0px)))
   .footer_link {
     padding 2vw calc(max(env(safe-area-inset-right), 2vw)) 2vw calc(max(env(safe-area-inset-left), 2vw))
   }
-}
 
 .footer_link_item
   box-sizing border-box
