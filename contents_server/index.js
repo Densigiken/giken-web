@@ -3,7 +3,7 @@ const fs = require('fs');
 const https = require('https')
 const server = express();
 
-const accessToken = fs.readFileSync('./.accessToken.txt', 'utf-8');
+const accessToken = process.env.accessToken;
 const channelID = 'CR790EC3F';
 const url = `https://slack.com/api/conversations.history?token=${accessToken}&channel=${channelID}&pretty=1`
 
