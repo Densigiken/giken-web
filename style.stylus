@@ -8,6 +8,7 @@
   --ui-text #cdcdcd
   --ui-focus #545454
   --ui-hover #656565
+  --key-color #3f95da
   --header-base-size 4vw
   --header-font-size 1.5vw
   --window-height 100vh
@@ -78,6 +79,12 @@ header
   top 0
   height var(--header-base-size)
   background-color var(--main-bg)
+  z-index 1
+  background-color var(--ui-bg)
+
+@supports (padding: calc(max(0px)))
+  header
+    padding 0 calc(max(env(safe-area-inset-right), 2vw)) 0 calc(max(env(safe-area-inset-left), 2vw))
 
 .header_logo
   display block
@@ -91,7 +98,7 @@ header
 
 nav
   position absolute
-  right 0
+  left var(--header-base-size)
   top 0
   display flex
   justify-content space-between
@@ -99,14 +106,19 @@ nav
   height var(--header-base-size)
   line-height var(--header-base-size)
 
+@supports (width: calc(max(0px)))
+  nav
+    width calc(100vw - env(safe-area-inset-left) - env(safe-area-inset-right)  - var(--header-base-size))
+    left calc(env(safe-area-inset-left) + var(--header-base-size))
+
 .nav_item
   display inline-block
   width 100%
+  margin 0
   padding 0
   border none
   text-align center
   font-size var(--header-font-size)
-  background-color var(--ui-bg)
   color var(--ui-text)
 
 main
@@ -117,6 +129,10 @@ main
   box-sizing border-box
   padding 2vw
 
+@supports (padding: calc(max(0px)))
+  main
+    padding 2vw calc(max(env(safe-area-inset-right), 2vw)) 2vw calc(max(env(safe-area-inset-left), 2vw))
+
 .card_layout, .card_button
   background-color var(--ui-bg2)
   border none
@@ -126,22 +142,36 @@ main
   flex-basis 47vw
   @media screen and (max-width 480px)
     flex-basis 96vw
+  position relative
   margin-bottom 2vw
+  border-radius 25px 5px 5px 5px
+  background-color var(--ui-bg2)
+
+@supports (padding: calc(max(0px)))
+  .card
+    flex-basis calc((98vw - max(env(safe-area-inset-left), 2vw) - max(env(safe-area-inset-right), 2vw)) / 2)
+    @media screen and (max-width 480px)
+      flex-basis calc((100vw - max(env(safe-area-inset-left), 2vw) - max(env(safe-area-inset-right), 2vw)))
 
 .card_layout
   box-sizing border-box
   padding 2%
-  border-radius 5px 5px 0px 0px
+  border-style solid
+  border-width 2px 1px 0px 0px
+  border-color var(--key-color)
+  border-radius 25px 5px 0px 0px
 
 .card_title
   margin 0
 
 .card_button
+  position absolute
+  bottom 0
   display block
   width 100%
-  margin-top 2px
   height calc(var(--header-base-size) / 2)
   line-height calc(var(--header-base-size) / 2)
+  border-top solid 2px var(--main-bg)
   border-radius 0px 0px 5px 5px
   font-size calc(var(--header-base-size) / 2)
 
@@ -151,22 +181,26 @@ main
 footer
   position relative
   bottom 0
+  padding-bottom env(safe-area-inset-bottom)
   height calc(4rem + 4vw)
   @media screen and (max-width 480px)
     height calc(6rem + 8vw)
   background-color var(--ui-bg2)
+
 .footer_link
   display flex
   height calc(2rem + 4vw)
   padding 2vw
-  flex-basis 44vw
   @media screen and (max-width 480px)
-    flex-basis 47vw
     height calc(4rem + 6vw)
   flex-wrap wrap
   justify-content space-between
   align-content space-between
   box-sizing border-box
+
+@supports (padding: calc(max(0px)))
+  .footer_link
+    padding 2vw calc(max(env(safe-area-inset-right), 2vw)) 2vw calc(max(env(safe-area-inset-left), 2vw))
 
 .footer_link_item
   box-sizing border-box
@@ -180,6 +214,13 @@ footer
   color #fff
   border none
   background-color #000
+  font-size var(--header-font-size)
+
+@supports (padding: calc(max(0px)))
+  .footer_link_item
+    flex-basis calc((90vw - max(env(safe-area-inset-left), 2vw) - max(env(safe-area-inset-right), 2vw)) / 4)
+    @media screen and (max-width 480px)
+      flex-basis calc((98vw - max(env(safe-area-inset-left), 2vw) - max(env(safe-area-inset-right), 2vw)) / 2)
 
 a
   text-decoration: none
