@@ -1,4 +1,4 @@
-const layout = function layout(inp) {
+function layout() {
     document.documentElement.style.setProperty("--window-height", `${window.innerHeight}px`);
     const cards = Array.prototype.slice.call(document.getElementsByClassName("card"));
     const content = Array.prototype.slice.call(document.getElementsByClassName("card_layout"));
@@ -8,5 +8,5 @@ const layout = function layout(inp) {
         cards[i].style.height = `${parseFloat(getComputedStyle(content[i]).height) + buttonHeight}px`
     }
 }
-document.addEventListener("DOMContentLoaded", () => { layout("load") });
-window.addEventListener("resize", () => { layout("resize") });
+document.addEventListener("DOMContentLoaded", () => { layout() });
+window.addEventListener("resize", () => { layout() });
