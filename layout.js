@@ -12,5 +12,5 @@ const layout = function layout(inp) {
     };
     console.log(inp);
 }
-document.addEventListener("DOMContentLoaded", layout("load"));
-window.addEventListener("resize", layout("resize"));
+document.addEventListener("DOMContentLoaded", () => { layout("load") });
+window.addEventListener("resize", () => { layout("resize") });
