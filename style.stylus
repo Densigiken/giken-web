@@ -86,7 +86,7 @@ header
 @supports (padding: calc(max(0px)))
   @media screen and (orientation: landscape)
     header
-      padding 0 calc(max(env(safe-area-inset-right), 2vw)) 0 calc(max(env(safe-area-inset-left), 2vw))
+      padding 0 env(safe-area-inset-right) 0 env(safe-area-inset-left)
 
 .header_logo
   display block
