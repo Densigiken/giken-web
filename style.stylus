@@ -174,6 +174,7 @@ main
 footer
   position relative
   bottom 0
+  padding-bottom env(safe-area-inset-bottom)
   height calc(4rem + 4vw)
   @media screen and (max-width 480px)
     height calc(6rem + 8vw)
@@ -183,14 +184,18 @@ footer
   display flex
   height calc(2rem + 4vw)
   padding 2vw
-  flex-basis 44vw
   @media screen and (max-width 480px)
-    flex-basis 47vw
     height calc(4rem + 6vw)
   flex-wrap wrap
   justify-content space-between
   align-content space-between
   box-sizing border-box
+
+@supports (padding: calc(max(0px))) {
+  .footer_link {
+    padding 2vw calc(max(env(safe-area-inset-right), 2vw)) 2vw calc(max(env(safe-area-inset-left), 2vw))
+  }
+}
 
 .footer_link_item
   box-sizing border-box
@@ -205,6 +210,12 @@ footer
   border none
   background-color #000
   font-size var(--header-font-size)
+
+@supports (padding: calc(max(0px)))
+  .footer_link_item
+    flex-basis calc((90vw - max(env(safe-area-inset-left), 2vw) - max(env(safe-area-inset-right), 2vw)) / 4)
+    @media screen and (max-width 480px)
+      flex-basis calc((98vw - max(env(safe-area-inset-left), 2vw) - max(env(safe-area-inset-right), 2vw)) / 2)
 
 a
   text-decoration: none

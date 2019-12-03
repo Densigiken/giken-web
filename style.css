@@ -39,7 +39,7 @@ html,
 body {
   margin: 0;
   background-color: var(--main-bg);
-  font-family: -apple-system, 'BlinkMacSystemFont', 'Hiragino Kaku Gothic ProN', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-family: -apple-system, 'BlinkMacSystemFont', 'Hiragino Kaku Gothic ProN', 'メイリオ', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 }
 .hero {
   display: flex;
@@ -184,6 +184,7 @@ main {
 footer {
   position: relative;
   bottom: 0;
+  padding-bottom: env(safe-area-inset-bottom);
   height: calc(4rem + 4vw);
   background-color: var(--ui-bg2);
 }
@@ -196,7 +197,6 @@ footer {
   display: flex;
   height: calc(2rem + 4vw);
   padding: 2vw;
-  flex-basis: 44vw;
   flex-wrap: wrap;
   justify-content: space-between;
   align-content: space-between;
@@ -204,8 +204,12 @@ footer {
 }
 @media screen and (max-width: 480px) {
   .footer_link {
-    flex-basis: 47vw;
     height: calc(4rem + 6vw);
+  }
+}
+@supports (padding: calc(max(0px))) {
+  .footer_link {
+    padding: 2vw calc(max(env(safe-area-inset-right), 2vw)) 2vw calc(max(env(safe-area-inset-left), 2vw));
   }
 }
 .footer_link_item {
@@ -224,6 +228,16 @@ footer {
   .footer_link_item {
     flex-basis: 47vw;
   }
+}
+@supports (padding: calc(max(0px))) {
+  .footer_link_item {
+    flex-basis: calc((90vw - max(env(safe-area-inset-left), 2vw) - max(env(safe-area-inset-right), 2vw)) / 4);
+  }
+@media screen and (max-width: 480px) {
+    .footer_link_item {
+      flex-basis: calc((98vw - max(env(safe-area-inset-left), 2vw) - max(env(safe-area-inset-right), 2vw)) / 2);
+    }
+}
 }
 a {
   text-decoration: none;
