@@ -2,7 +2,7 @@
 img/archive/
 .accessToken*
 contents_server/contents/
-contents_server/app.yaml
+secret.yaml
 
 # Logs
 logs
