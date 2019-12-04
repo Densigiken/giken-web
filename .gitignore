@@ -1,8 +1,8 @@
 #Custom
 img/archive/
 .accessToken*
-contents/
-app.yaml
+contents_server/contents/
+contents_server/app.yaml
 
 # Logs
 logs
