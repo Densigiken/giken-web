@@ -3,7 +3,7 @@ const fs = require('fs');
 const https = require('https')
 const server = express();
 
-const accessToken = process.env.accessToken;
+const accessToken = process.env.accessToken || fs.readFileSync('./.accessToken.txt', 'utf-8');
 const channelID = 'CR790EC3F';
 const url = `https://slack.com/api/conversations.history?token=${accessToken}&channel=${channelID}&pretty=1`
 
@@ -43,9 +43,13 @@ setInterval(function() {
       });
     });
   }).on('error', (e) => {
-    console.log(e.message); //エラー時
+    console.log(e.message);
   });
 }, 300000);
 
-server.get('/blog', (req, res) => res.send(fs.readFileSync('./contents/blog.json', 'utf-8')));
-server.listen(3000, () => console.log('Listening on port 3000'));
+server.get('/', (req, res) => {
+  res.status(200).send('Hi! Are you lost? Visit <a href="https://densigiken.github.io/giken-web/index.html">our website</a>', 'utf-8').end();
+});
+server.get('/blog', (req, res) => res.status(200).send(fs.readFileSync('./contents/blog.json', 'utf-8')).end());
+const PORT = process.env.PORT || 8080;
+server.listen(PORT, () => console.log(`Listening on port ${PORT}`));
