@@ -133,6 +133,11 @@ nav {
   color: var(--ui-text);
   background-color: transparent;
 }
+@media screen and (min-width: 480px) {
+  .nav_item:hover {
+    background-color: var(--ui-hover);
+  }
+}
 main {
   display: flex;
   flex-wrap: wrap;
@@ -309,6 +314,11 @@ footer {
 @media screen and (max-width: 480px) {
   .footer_link_item {
     flex-basis: 47vw;
+  }
+}
+@media screen and (min-width: 480px) {
+  .footer_link_item:hover {
+    background-color: var(--ui-hover);
   }
 }
 @supports (padding: calc(max(0px))) {
