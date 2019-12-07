@@ -5,6 +5,7 @@ const https = require('https')
 const accessToken = process.env.accessToken || fs.readFileSync(__dirname+'/.accessToken.txt', 'utf-8');
 const channelID = 'CR790EC3F';
 const url = `https://slack.com/api/conversations.history?token=${accessToken}&channel=${channelID}&pretty=1`
+let contents = [];
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -28,7 +29,6 @@ app.get('/contents-refresh', (req, res) => {
 
     res.on('end', (res) => {
       res = JSON.parse(body);
-      let contents = [];
       for (let i = 0; i < res.messages.length; i++) {
         const message = res.messages[i];
         if (message.type == 'message' && !message.subtype) {
@@ -43,13 +43,6 @@ app.get('/contents-refresh', (req, res) => {
           }
         }
       }
-      fs.writeFile(__dirname+'/contents/blog.json', JSON.stringify(content), (err, result) => {
-        if (err) {
-          console.log('error', err);
-        } else {
-          console.log('Blog data is ready!');
-        };
-      });
     });
   }).on('error', (e) => {
     console.log(e.message);
