@@ -44,7 +44,7 @@ app.get('/contents-refresh', (req, res) => {
           }
         }
       }
-      fs.writeFile('./contents/blog.json', JSON.stringify(content), (err, result) => {
+      fs.writeFile(__dirname+'/contents/blog.json', JSON.stringify(content), (err, result) => {
         if (err) {
           console.log('error', err);
         } else {
