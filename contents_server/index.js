@@ -7,6 +7,12 @@ const accessToken = process.env.accessToken || fs.readFileSync('./.accessToken.t
 const channelID = 'CR790EC3F';
 const url = `https://slack.com/api/conversations.history?token=${accessToken}&channel=${channelID}&pretty=1`
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 app.get('/', (req, res) => {
   res
     .send('Hi! Are you lost? Visit <a href="https://densigiken.github.io/giken-web/index.html">our website</a>')
