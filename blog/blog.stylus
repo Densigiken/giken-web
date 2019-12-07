@@ -1,0 +1,30 @@
+.card
+  flex-basis 96vw
+  margin-bottom 2vw
+  border-radius 25px 5px 5px 5px
+  background-color var(--ui-bg2)
+
+@supports (padding: calc(max(0px)))
+  .card
+    flex-basis calc(100vw - max(env(safe-area-inset-left), 2vw) - max(env(safe-area-inset-right), 2vw))
+
+.card_layout
+  padding calc(96vw * 0.02)
+  border-radius 25px 10px 10px 10px
+
+.card_title:after
+  border-width 3px calc(96vw * 0.96) 0px 0px
+
+@supports (padding: calc(max(0px)))
+  .card_title:after
+    border-width 3px calc((100vw - max(env(safe-area-inset-left), 2vw) - max(env(safe-area-inset-right), 2vw)) * 0.96) 0px 0px
+
+.card_article
+  display block
+  height 100%
+  line-height 100%
+
+.card_text
+  display block
+  height 100%
+  padding-right calc(96vw * 0.02)
