@@ -1,13 +1,18 @@
-const express = require('express')
+const app = require('express')();
 const fs = require('fs');
 const https = require('https')
-const server = express();
+// const server = express();
 
 const accessToken = process.env.accessToken || fs.readFileSync('./.accessToken.txt', 'utf-8');
 const channelID = 'CR790EC3F';
 const url = `https://slack.com/api/conversations.history?token=${accessToken}&channel=${channelID}&pretty=1`
 
-setInterval(function() {
+app.get('/', (req, res) => {
+  res
+    .send('Hi! Are you lost? Visit <a href="https://densigiken.github.io/giken-web/index.html">our website</a>')
+});
+app.get('/blog', (req, res) => res.status(200).sendFile(__dirname+'/contents/blog.json'));
+app.get('/contents-refresh', (req, res) => {
   https.get(url, (res) => {
     let body = '';
     res.setEncoding('utf8');
@@ -23,13 +28,12 @@ setInterval(function() {
         const message = res.messages[i];
         if (message.type == 'message' && !message.subtype) {
           const article = message.text.toString().split('\n');
-          content[i] = { title: '', body: '' }
+          content[i] = { title: '', body: [] };
           for (let j = 0; j < article.length; j++) {
-            const line = article[j];
             if (j == 0) {
-              content[i].title = line;
+              content[i].title = article[j];
             } else {
-              content[i].body += line;
+              content[i].body[j-1] = article[j];
             }
           }
         }
@@ -45,11 +49,9 @@ setInterval(function() {
   }).on('error', (e) => {
     console.log(e.message);
   });
-}, 300000);
-
-server.get('/', (req, res) => {
-  res.status(200).send('Hi! Are you lost? Visit <a href="https://densigiken.github.io/giken-web/index.html">our website</a>', 'utf-8').end();
+  res
+    .status(202)
+    .end();
 });
-server.get('/blog', (req, res) => res.status(200).send(fs.readFileSync('./contents/blog.json', 'utf-8')).end());
 const PORT = process.env.PORT || 8080;
-server.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
