@@ -1,9 +1,8 @@
 const app = require('express')();
 const fs = require('fs');
 const https = require('https')
-// const server = express();
 
-const accessToken = process.env.accessToken || fs.readFileSync('./.accessToken.txt', 'utf-8');
+const accessToken = process.env.accessToken || fs.readFileSync(__dirname+'/.accessToken.txt', 'utf-8');
 const channelID = 'CR790EC3F';
 const url = `https://slack.com/api/conversations.history?token=${accessToken}&channel=${channelID}&pretty=1`
 
@@ -17,7 +16,7 @@ app.get('/', (req, res) => {
   res
     .send('Hi! Are you lost? Visit <a href="https://densigiken.github.io/giken-web/index.html">our website</a>')
 });
-app.get('/blog', (req, res) => res.status(200).sendFile(__dirname+'/contents/blog.json'));
+
 app.get('/contents-refresh', (req, res) => {
   https.get(url, (res) => {
     let body = '';
@@ -57,7 +56,10 @@ app.get('/contents-refresh', (req, res) => {
   });
   res
     .status(202)
-    .end();
+    .send('Refresh process has been started.');
 });
+
+app.get('/blog', (req, res) => res.status(200).send(contents));
+
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
