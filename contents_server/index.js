@@ -29,17 +29,17 @@ app.get('/contents-refresh', (req, res) => {
 
     res.on('end', (res) => {
       res = JSON.parse(body);
-      let content = [];
+      let contents = [];
       for (let i = 0; i < res.messages.length; i++) {
         const message = res.messages[i];
         if (message.type == 'message' && !message.subtype) {
           const article = message.text.toString().split('\n');
-          content[i] = { title: '', body: [] };
+          contents[i] = { title: '', body: [] };
           for (let j = 0; j < article.length; j++) {
             if (j == 0) {
-              content[i].title = article[j];
+              contents[i].title = article[j];
             } else {
-              content[i].body[j-1] = article[j];
+              contents[i].body[j-1] = article[j];
             }
           }
         }
