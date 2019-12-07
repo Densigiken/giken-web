@@ -1,0 +1,4 @@
+cron:
+- description: Reflesh dynamic contents
+  url: /contents-refresh
+  schedule: every 30 minutes
