@@ -2,7 +2,7 @@ const app = require('express')();
 const fs = require('fs');
 const https = require('https')
 
-const accessToken = process.env.accessToken || fs.readFileSync(__dirname+'/.accessToken.txt', 'utf-8');
+const accessToken = process.env.accessToken;
 const channelID = 'CR790EC3F';
 const url = `https://slack.com/api/conversations.history?token=${accessToken}&channel=${channelID}&pretty=1`
 
@@ -43,7 +43,7 @@ app.get('/contents-refresh', (req, res) => {
           }
         }
       }
-      fs.writeFile(__dirname+'/contents/blog.json', JSON.stringify(content), (err, result) => {
+      fs.writeFile('/tmp/blog.json', JSON.stringify(content), (err, result) => {
         if (err) {
           console.log('error', err);
         } else {
@@ -59,7 +59,7 @@ app.get('/contents-refresh', (req, res) => {
     .send('Refresh process has been started.');
 });
 
-app.get('/blog', (req, res) => res.status(200).send(contents));
+app.get('/blog', (req, res) => res.status(200).send(fs.readFileSync('/tmp/blog.json', 'utf-8')));
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
