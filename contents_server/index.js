@@ -1,11 +1,11 @@
 const app = require('express')();
 const fs = require('fs');
 const https = require('https')
-// const server = express();
 
-const accessToken = process.env.accessToken || fs.readFileSync('./.accessToken.txt', 'utf-8');
+const accessToken = process.env.accessToken;
 const channelID = 'CR790EC3F';
 const url = `https://slack.com/api/conversations.history?token=${accessToken}&channel=${channelID}&pretty=1`
+let contents = [];
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
   res
     .send('Hi! Are you lost? Visit <a href="https://densigiken.github.io/giken-web/index.html">our website</a>')
 });
-app.get('/blog', (req, res) => res.status(200).sendFile(__dirname+'/contents/blog.json'));
+
 app.get('/contents-refresh', (req, res) => {
   https.get(url, (res) => {
     let body = '';
@@ -29,22 +29,21 @@ app.get('/contents-refresh', (req, res) => {
 
     res.on('end', (res) => {
       res = JSON.parse(body);
-      let content = [];
       for (let i = 0; i < res.messages.length; i++) {
         const message = res.messages[i];
         if (message.type == 'message' && !message.subtype) {
           const article = message.text.toString().split('\n');
-          content[i] = { title: '', body: [] };
+          contents[i] = { title: '', body: [] };
           for (let j = 0; j < article.length; j++) {
             if (j == 0) {
-              content[i].title = article[j];
+              contents[i].title = article[j];
             } else {
-              content[i].body[j-1] = article[j];
+              contents[i].body[j-1] = article[j];
             }
           }
         }
       }
-      fs.writeFile('./contents/blog.json', JSON.stringify(content), (err, result) => {
+      fs.writeFile('/tmp/blog.json', JSON.stringify(contents), (err, result) => {
         if (err) {
           console.log('error', err);
         } else {
@@ -57,7 +56,10 @@ app.get('/contents-refresh', (req, res) => {
   });
   res
     .status(202)
-    .end();
+    .send('Refresh process has been started.');
 });
+
+app.get('/blog', (req, res) => res.status(200).send(fs.readFileSync('/tmp/blog.json', 'utf-8')));
+
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
