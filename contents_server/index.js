@@ -1,6 +1,7 @@
 const app = require('express')();
 const fs = require('fs');
-const request = require('request')
+const request = require('request');
+const moment = require('moment');
 
 const accessToken = process.env.accessToken;
 const channelID = 'CR790EC3F';
@@ -46,7 +47,7 @@ app.get('/contents-refresh', (req, res) => {
               break;
             }
           }
-          contents[i].dt = new Date(message.ts * 1000).toLocaleString('ja-JP').replace(/-/g, '/');
+          contents[i].dt = moment(message.ts * 1000).utc().add('hours', 9).format('YYYY/MM/DD HH:mm:ss');
           const article = message.text.toString().split('\n');
           for (let j = 0; j < article.length; j++) {
             if (j == 0) {
