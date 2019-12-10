@@ -43,11 +43,13 @@ app.get('/contents-refresh', (req, res) => {
           }
         }
       }
+      contents = contents.filter(v => v);
       fs.writeFile('/tmp/blog.json', JSON.stringify(contents), (err, result) => {
         if (err) {
           console.log('error', err);
         } else {
           console.log('Blog data is ready!');
+          console.log(contents);
         };
       });
     });
