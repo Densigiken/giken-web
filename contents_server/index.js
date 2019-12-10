@@ -38,7 +38,7 @@ app.get('/contents-refresh', (req, res) => {
       for (let i = 0; i < response.messages.length; i++) {
         const message = response.messages[i];
         if (message.type == 'message' && !message.subtype) {
-          contents[i] = { title: '', author: '', body: [] };
+          contents[i] = { title: '', author: '', dt: '', body: [] };
           for (let j = 0; j < users.members.length; j++) {
             if (users.members[j].id == message.user) {
               console.log(users.members[j].display_name);
@@ -46,6 +46,7 @@ app.get('/contents-refresh', (req, res) => {
               break;
             }
           }
+          contents[i].dt = new Date(message.ts * 1000).toLocaleString('ja-JP').replace(/-/g, '/');
           const article = message.text.toString().split('\n');
           for (let j = 0; j < article.length; j++) {
             if (j == 0) {
