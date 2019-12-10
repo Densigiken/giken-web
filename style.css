@@ -11,7 +11,7 @@
   --header-font-size: 1.5vw;
   --window-height: 100vh;
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   :root {
     --header-base-size: 10vw;
     --header-font-size: 3vw;
@@ -133,7 +133,7 @@ nav {
   color: var(--ui-text);
   background-color: transparent;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 600px) {
   .nav_item:hover {
     background-color: var(--ui-hover);
   }
@@ -164,7 +164,7 @@ main {
   border-radius: 25px 5px 5px 5px;
   background-color: var(--ui-bg2);
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   .card {
     flex-basis: 96vw;
   }
@@ -173,7 +173,7 @@ main {
   .card {
     flex-basis: calc((98vw - max(env(safe-area-inset-left), 2vw) - max(env(safe-area-inset-right), 2vw)) / 2);
   }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
     .card {
       flex-basis: calc(100vw - max(env(safe-area-inset-left), 2vw) - max(env(safe-area-inset-right), 2vw));
     }
@@ -187,7 +187,7 @@ main {
   border-color: var(--key-color);
   border-radius: 25px 10px 0px 0px;
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   .card_layout {
     padding: calc(96vw * 0.02);
   }
@@ -211,7 +211,7 @@ main {
   border-width: 3px calc(47vw * 0.96) 0px 0px;
   border-color: var(--main-text) transparent transparent transparent;
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   .card_title:after {
     border-width: 3px calc(96vw * 0.96) 0px 0px;
   }
@@ -220,7 +220,7 @@ main {
   .card_title:after {
     border-width: 3px calc((98vw - max(env(safe-area-inset-left), 2vw) - max(env(safe-area-inset-right), 2vw)) * 0.48) 0px 0px;
   }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
     .card_title:after {
       border-width: 3px calc((100vw - max(env(safe-area-inset-left), 2vw) - max(env(safe-area-inset-right), 2vw)) * 0.96) 0px 0px;
     }
@@ -241,7 +241,7 @@ main {
   font-size: 1em;
   vertical-align: middle;
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   .card_text {
     padding-right: calc(96vw * 0.02);
   }
@@ -263,7 +263,7 @@ main {
   border-radius: 0px 0px 5px 5px;
   font-size: calc(var(--header-base-size) / 2);
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 600px) {
   .card_button:hover {
     background-color: var(--ui-hover);
   }
@@ -275,7 +275,7 @@ footer {
   height: calc(4rem + 4vw);
   background-color: var(--ui-bg2);
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   footer {
     height: calc(6rem + 8vw);
   }
@@ -289,7 +289,7 @@ footer {
   align-content: space-between;
   box-sizing: border-box;
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   .footer_link {
     height: calc(4rem + 6vw);
   }
@@ -311,12 +311,12 @@ footer {
   background-color: #000;
   font-size: var(--header-font-size);
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   .footer_link_item {
     flex-basis: 47vw;
   }
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 600px) {
   .footer_link_item:hover {
     background-color: var(--ui-hover);
   }
@@ -325,7 +325,7 @@ footer {
   .footer_link_item {
     flex-basis: calc((90vw - max(env(safe-area-inset-left), 2vw) - max(env(safe-area-inset-right), 2vw)) / 4);
   }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
     .footer_link_item {
       flex-basis: calc((98vw - max(env(safe-area-inset-left), 2vw) - max(env(safe-area-inset-right), 2vw)) / 2);
     }
@@ -345,7 +345,7 @@ a {
   color: var(--main-text);
   text-align: center;
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   .footer_copywrite {
     font-size: calc(100vw / 30);
   }

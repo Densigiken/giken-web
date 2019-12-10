@@ -13,7 +13,7 @@
   --header-font-size 1.5vw
   --window-height 100vh
 
-@media screen and (max-width 480px)
+@media screen and (max-width 600px)
   :root
     --header-base-size 10vw
     --header-font-size 3vw
@@ -129,7 +129,7 @@ nav
   background-color transparent
 
 .nav_item:hover
-  @media screen and (min-width 480px)
+  @media screen and (min-width 600px)
     background-color var(--ui-hover)
 
 main
@@ -152,7 +152,7 @@ main
 
 .card
   flex-basis 47vw
-  @media screen and (max-width 480px)
+  @media screen and (max-width 600px)
     flex-basis 96vw
   margin-bottom 2vw
   border-radius 25px 5px 5px 5px
@@ -161,13 +161,13 @@ main
 @supports (padding: calc(max(0px)))
   .card
     flex-basis calc((98vw - max(env(safe-area-inset-left), 2vw) - max(env(safe-area-inset-right), 2vw)) / 2)
-    @media screen and (max-width 480px)
+    @media screen and (max-width 600px)
       flex-basis calc(100vw - max(env(safe-area-inset-left), 2vw) - max(env(safe-area-inset-right), 2vw))
 
 .card_layout
   box-sizing border-box
   padding calc(47vw * 0.02)
-  @media screen and (max-width 480px)
+  @media screen and (max-width 600px)
     padding calc(96vw * 0.02)
   border-style solid
   border-width 2px 2px 0px 0px
@@ -191,14 +191,14 @@ main
   height 0
   border-style solid
   border-width 3px calc(47vw * 0.96) 0px 0px
-  @media screen and (max-width 480px)
+  @media screen and (max-width 600px)
     border-width 3px calc(96vw * 0.96) 0px 0px
   border-color var(--main-text) transparent transparent transparent
 
 @supports (padding: calc(max(0px)))
   .card_title:after
     border-width 3px calc((98vw - max(env(safe-area-inset-left), 2vw) - max(env(safe-area-inset-right), 2vw)) * 0.48) 0px 0px
-    @media screen and (max-width 480px)
+    @media screen and (max-width 600px)
       border-width 3px calc((100vw - max(env(safe-area-inset-left), 2vw) - max(env(safe-area-inset-right), 2vw)) * 0.96) 0px 0px
 
 .card_article
@@ -213,7 +213,7 @@ main
   height 100%
   flex-basis calc(100% - 100px)
   padding-right calc(47vw * 0.02)
-  @media screen and (max-width 480px)
+  @media screen and (max-width 600px)
     padding-right calc(96vw * 0.02)
   font-size 1em
   vertical-align middle
@@ -236,7 +236,7 @@ main
   font-size calc(var(--header-base-size) / 2)
 
 .card_button:hover
-  @media screen and (min-width 480px)
+  @media screen and (min-width 600px)
     background-color var(--ui-hover)
 
 footer
@@ -244,7 +244,7 @@ footer
   bottom 0
   padding-bottom env(safe-area-inset-bottom)
   height calc(4rem + 4vw)
-  @media screen and (max-width 480px)
+  @media screen and (max-width 600px)
     height calc(6rem + 8vw)
   background-color var(--ui-bg2)
 
@@ -252,7 +252,7 @@ footer
   display flex
   height calc(2rem + 4vw)
   padding 2vw
-  @media screen and (max-width 480px)
+  @media screen and (max-width 600px)
     height calc(4rem + 6vw)
   flex-wrap wrap
   justify-content space-between
@@ -266,7 +266,7 @@ footer
 .footer_link_item
   box-sizing border-box
   flex-basis calc(90vw / 4)
-  @media screen and (max-width 480px)
+  @media screen and (max-width 600px)
     flex-basis 47vw
   display block
   height 2rem
@@ -278,13 +278,13 @@ footer
   font-size var(--header-font-size)
 
 .footer_link_item:hover
-  @media screen and (min-width 480px)
+  @media screen and (min-width 600px)
     background-color var(--ui-hover)
 
 @supports (padding: calc(max(0px)))
   .footer_link_item
     flex-basis calc((90vw - max(env(safe-area-inset-left), 2vw) - max(env(safe-area-inset-right), 2vw)) / 4)
-    @media screen and (max-width 480px)
+    @media screen and (max-width 600px)
       flex-basis calc((98vw - max(env(safe-area-inset-left), 2vw) - max(env(safe-area-inset-right), 2vw)) / 2)
 
 a
@@ -299,6 +299,6 @@ a
   line-height 2rem
   font-size 1rem
   color var(--main-text)
-  @media screen and (max-width 480px)
+  @media screen and (max-width 600px)
     font-size calc(100vw / 30)
   text-align center
