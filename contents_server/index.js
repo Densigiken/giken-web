@@ -63,10 +63,10 @@ app.get('/contents-refresh', (req, res) => {
         if (err) {
           console.log('error', err);
         } else {
-          console.log('Blog data is ready!');
-          console.log(contents);
+          console.log('Blog data is saved');
         }
       });
+      request({ url: 'https://api.myjson.com/bins/qpq3o', method: 'PUT', json: contents }, () => console.log('Blog data is PUT to https://api.myjson.com/bins/qpq3o'));
     });
   });
   res
