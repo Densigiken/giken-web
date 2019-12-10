@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded",e=>{
-  fetch('https://animated-scope-260909.appspot.com/blog', {
+  fetch('https://api.myjson.com/bins/qpq3o', {// このURLは暫定的に利用させていただいているサービスの物なので、できる限り早く大学のftpサーバーから取得するように変える。
     method: "GET",
     mode: 'cors'
   })

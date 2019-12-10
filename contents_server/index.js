@@ -16,7 +16,7 @@ app.use(function(req, res, next) {
 
 app.get('/', (req, res) => {
   res
-    .send('Hi! Are you lost? Visit <a href="https://densigiken.github.io/giken-web/index.html">our website</a>')
+    .send('<a href="https://densigiken.github.io/giken-web/index.html">ウェブサイト</a><br/><a href="https://animated-scope-260909.appspot.com/contents-refresh">データ更新</a><br/><a href="https://api.myjson.com/bins/qpq3o">配信確認</a><br/><a href="https://animated-scope-260909.appspot.com/blog">生データ確認</a>');
 });
 
 
@@ -63,10 +63,10 @@ app.get('/contents-refresh', (req, res) => {
         if (err) {
           console.log('error', err);
         } else {
-          console.log('Blog data is ready!');
-          console.log(contents);
+          console.log('Blog data is saved');
         }
       });
+      request({ url: 'https://api.myjson.com/bins/qpq3o', method: 'PUT', json: contents }, () => console.log('Blog data is PUT to https://api.myjson.com/bins/qpq3o'));
     });
   });
   res
