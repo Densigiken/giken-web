@@ -11,7 +11,15 @@ document.addEventListener("DOMContentLoaded",e=>{
         for (let i = contents.length-1; i >= 0; i--) {
           const content = contents[i];
           console.log(content);
-          let card = '<section class="card"><div class="card_layout"><h3 class="card_title">'+content.title+'</h3><article class="card_article"><div class="card_text">'
+          let card =
+            `<section class="card">
+              <div class="card_layout">
+                <h3 class="card_title">${content.title}</h3>
+                <span class="card_info">
+                <span class="card_author">Posted by ${content.author}</span><time class="card_time">at ${content.dt}</time>
+                </span>
+                <article class="card_article">
+                  <div class="card_text">`
           for (let j = 0; j < content.body.length; j++) {
             card += '<p>'+content.body[j]+'</p>'
           }
