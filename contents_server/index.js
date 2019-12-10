@@ -5,7 +5,6 @@ const https = require('https')
 const accessToken = process.env.accessToken;
 const channelID = 'CR790EC3F';
 const url = `https://slack.com/api/conversations.history?token=${accessToken}&channel=${channelID}&pretty=1`
-let contents = [];
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -20,6 +19,7 @@ app.get('/', (req, res) => {
 
 app.get('/contents-refresh', (req, res) => {
   https.get(url, (res) => {
+    let contents = [];
     let body = '';
     res.setEncoding('utf8');
 
