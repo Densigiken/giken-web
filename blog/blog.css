@@ -21,6 +21,17 @@
     border-width: 3px calc((100vw - max(env(safe-area-inset-left), 2vw) - max(env(safe-area-inset-right), 2vw)) * 0.96) 0px 0px;
   }
 }
+.card_time {
+  position: relative;
+  top: -1.2em;
+  font-size: 0.7em;
+}
+.card_author {
+  position: relative;
+  top: -1.2em;
+  margin-right: 0.5em;
+  font-size: 0.7em;
+}
 .card_article {
   display: block;
   height: 100%;
