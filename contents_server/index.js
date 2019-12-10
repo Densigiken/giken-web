@@ -38,8 +38,15 @@ app.get('/contents-refresh', (req, res) => {
       for (let i = 0; i < response.messages.length; i++) {
         const message = response.messages[i];
         if (message.type == 'message' && !message.subtype) {
+          contents[i] = { title: '', author: '', body: [] };
+          for (let j = 0; j < users.members.length; j++) {
+            if (users.members[j].id == message.user) {
+              console.log(users.members[j].display_name);
+              contents[i].author = users.members[j].profile.display_name;
+              break;
+            }
+          }
           const article = message.text.toString().split('\n');
-          contents[i] = { title: '', body: [] };
           for (let j = 0; j < article.length; j++) {
             if (j == 0) {
               contents[i].title = article[j];
